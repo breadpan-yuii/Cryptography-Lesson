@@ -1,5 +1,7 @@
 # 06. Summary and References
 
+Navigation: [Previous: 05. Applications of Cryptography](05_Applications_of_Cryptography.md) | [Back to README](../README.md)
+
 ## Course Summary
 
 ### What You've Learned

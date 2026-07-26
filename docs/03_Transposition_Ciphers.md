@@ -1,5 +1,7 @@
 # 03. Transposition Ciphers
 
+Navigation: [Previous: 02. Substitution Ciphers](02_Substitution_Ciphers.md) | [Next: 04. Comparison of Ciphers](04_Comparison_of_Ciphers.md)
+
 ## Table of Contents
 1. [What is a Transposition Cipher?](#what-is-a-transposition-cipher)
 2. [Rail Fence Transposition Cipher](#rail-fence-transposition-cipher)

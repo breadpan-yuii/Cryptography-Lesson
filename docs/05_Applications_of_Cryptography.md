@@ -1,5 +1,7 @@
 # 05. Applications of Cryptography
 
+Navigation: [Previous: 04. Comparison of Ciphers](04_Comparison_of_Ciphers.md) | [Next: 06. Summary](06_Summary.md)
+
 ## Modern Cryptographic Applications
 
 ### 1. Internet & Web Security

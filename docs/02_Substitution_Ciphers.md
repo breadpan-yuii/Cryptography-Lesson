@@ -1,5 +1,7 @@
 # 02. Substitution Ciphers
 
+Navigation: [Previous: 01. Introduction to Cryptography](01_Introduction_to_Cryptography.md) | [Next: 03. Transposition Ciphers](03_Transposition_Ciphers.md)
+
 This chapter merges the main lesson content with the extended substitution guide into a single complete learning resource for beginners.
 
 ## Table of Contents

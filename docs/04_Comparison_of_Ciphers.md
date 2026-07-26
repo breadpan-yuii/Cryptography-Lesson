@@ -1,5 +1,7 @@
 # 04. Comparison of Ciphers
 
+Navigation: [Previous: 03. Transposition Ciphers](03_Transposition_Ciphers.md) | [Next: 05. Applications of Cryptography](05_Applications_of_Cryptography.md)
+
 ## Complete Cipher Comparison Matrix
 
 ### Substitution vs. Transposition vs. Combined

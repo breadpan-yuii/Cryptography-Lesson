@@ -1,5 +1,7 @@
 # 06. Summary
 
+Navigation: [Previous: 05. Applications of Cryptography](05_Applications_of_Cryptography.md) | [Back to README](../README.md)
+
 ## Course Summary
 
 This lesson introduced the foundations of classical cryptography with a focus on substitution and transposition techniques. Students explored how encryption transforms readable messages into protected forms and how decryption reverses the process with a key.

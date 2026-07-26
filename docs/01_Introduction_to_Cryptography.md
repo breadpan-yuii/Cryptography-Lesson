@@ -1,5 +1,7 @@
 # 01. Introduction to Cryptography
 
+Navigation: [Next: 02. Substitution Ciphers](02_Substitution_Ciphers.md)
+
 ## Table of Contents
 1. [What is Cryptography?](#what-is-cryptography)
 2. [History of Cryptography](#history-of-cryptography)
