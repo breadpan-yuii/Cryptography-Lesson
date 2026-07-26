@@ -1,5 +1,9 @@
 # Comprehensive Substitution Ciphers Guide
 
+> This file has been superseded by the merged chapter in [02_Substitution_Ciphers.md](02_Substitution_Ciphers.md).
+>
+> The main lesson now contains the full substitution cipher material in a single, organized document for easier study and navigation.
+
 ## Complete Learning Material for All 10 Substitution Ciphers
 
 This is a complete university-level guide covering all substitution cipher techniques with detailed explanations, mathematical formulas, worked examples, and educational applications.
