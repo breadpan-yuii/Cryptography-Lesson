@@ -1,5 +1,7 @@
 # 02. Substitution Ciphers
 
+This chapter merges the main lesson content with the extended substitution guide into a single complete learning resource for beginners.
+
 ## Table of Contents
 1. [What is a Substitution Cipher?](#what-is-a-substitution-cipher)
 2. [Monoalphabetic Ciphers](#monoalphabetic-ciphers)
@@ -15,30 +17,34 @@
    - [Autokey Cipher](#autokey-cipher)
    - [Nihilist Cipher](#nihilist-cipher)
    - [One-Time Pad Cipher](#one-time-pad-cipher)
-5. [Summary](#summary)
+5. [Comparison and Learning Path](#comparison-and-learning-path)
+6. [Summary](#summary)
 
 ---
 
 ## What is a Substitution Cipher?
 
-### Definition
-A **substitution cipher** is an encryption technique where each character (or group of characters) in the plaintext is replaced by another character according to a fixed rule.
+A substitution cipher replaces each plaintext letter or symbol with another letter according to a fixed rule. The order of the characters stays the same, but the symbols change.
 
 ### Key Principle
-In substitution ciphers:
-- The **order of characters remains the same**
-- Only the **identity of each character changes**
+- The order of letters is preserved.
+- Only the identity of each letter changes.
 
 ### Example
-```
-Plaintext:  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-Ciphertext: D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
 
+```text
+Plaintext:  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Ciphertext: DEFGHIJKLMNOPQRSTUVWXYZABC
+```
+
+For a Caesar shift of 3:
+
+```text
 Plaintext:  HELLO WORLD
 Ciphertext: KHOOR ZRUOG
 ```
 
-Notice: Character positions stay the same; characters are replaced.
+This is the simplest form of substitution.
 
 ---
 
@@ -46,73 +52,147 @@ Notice: Character positions stay the same; characters are replaced.
 
 ## Caesar Cipher
 
-**Definition**: The Caesar Cipher shifts each letter by a fixed number of positions.
+### Definition
+The Caesar Cipher shifts each letter by a fixed number of positions in the alphabet.
 
-**Formula**: C = (P + K) mod 26
+### Formula
 
-**Example**: HELLO → KHOOR (shift 3)
+$$
+C \equiv (P + K) \bmod 26
+$$
 
-**Security Level**: 🔴 Very Weak (only 26 possible keys)
+Where:
+- $P$ = plaintext position
+- $K$ = shift value
+- $C$ = ciphertext position
 
-**Cryptanalysis**: Brute force, frequency analysis
+### How It Works
+1. Convert letters to numbers from 0 to 25.
+2. Add the key.
+3. Wrap around the alphabet using modulo 26.
+4. Convert the result back to letters.
 
-**Difficulty**: 🔵 Very Easy (1/10)
+### Worked Example
+Plaintext: HELLO
+Key: 3
 
-**Key Concept**: Simple shift cipher - fundamental for learning cryptography
+Result: KHOOR
+
+### Advantages
+- Very easy to understand
+- Fast to implement
+- Great for teaching the idea of encryption
+
+### Disadvantages
+- Only 26 possible shifts
+- Very weak against brute force and frequency analysis
+
+### Difficulty
+- Very easy
+
+### Real-World Relevance
+- Historical importance only
+- Used as a teaching example and for simple encoding such as ROT13
 
 ---
 
 ## Additive Cipher
 
-**Definition**: Mathematical addition operation on plaintext positions.
+### Definition
+An additive cipher is a form of Caesar cipher that uses modular addition on letter positions.
 
-**Formula**: C = (P + K) mod 26, P = (C - K) mod 26
+### Formula
 
-**Example**: CRYPTOGRAPHY with Key=5 → HWDUYJTLWFUMD
+$$
+C = (P + K) \bmod 26
+$$
 
-**Security Level**: 🔴 Very Weak (only 26 possible keys)
+### Example
+Plaintext: CRYPTOGRAPHY
+Key: 5
 
-**Key Concept**: Demonstrates modular arithmetic in cryptography
+Ciphertext: HWDUYTLWFUMD
+
+### Advantages
+- Simple to explain with modular arithmetic
+- Easy to implement by hand
+
+### Disadvantages
+- Still vulnerable to brute-force attacks
+- Small key space
+
+### Difficulty
+- Easy
 
 ---
 
 ## Multiplicative Cipher
 
-**Definition**: Multiplies each plaintext position by a key value (modulo 26).
+### Definition
+A multiplicative cipher multiplies each letter position by a key value modulo 26.
 
-**Formula**: C = (P × K) mod 26, P = (C × K^-1) mod 26
+### Formula
 
-**Key Constraint**: K must be coprime with 26
+$$
+C = (P \times K) \bmod 26
+$$
 
-**Valid Keys**: 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 (only 12 valid keys)
+The key must be coprime with 26 so that decryption is possible.
 
-**Example**: HELLO with Key=5 → JUDDS
+### Valid Keys
+The valid keys are:
+- 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25
 
-**Security Level**: 🔴 Very Weak (only 12 valid keys)
+### Example
+Plaintext: HELLO
+Key: 5
 
-**Key Concept**: Introduces modular inverses and coprimality
+Ciphertext: JUDDS
+
+### Advantages
+- Introduces modular multiplication
+- Slightly more mathematical than Caesar
+
+### Disadvantages
+- Limited valid keys
+- Still breakable by simple analysis
+
+### Difficulty
+- Easy to medium
 
 ---
 
 ## Affine Cipher
 
-**Definition**: Combines multiplicative and additive cipher operations.
+### Definition
+The Affine Cipher combines multiplication and addition.
 
-**Formula**: C = (K1 × P + K2) mod 26
+### Formula
 
-**Parameters**: 
-- K1 (Multiplier): Must be coprime with 26
-- K2 (Additive): Any value 0-25
+$$
+C = (aP + b) \bmod 26
+$$
 
-**Total Key Space**: 12 × 26 = 312 combinations
+Where:
+- $a$ = multiplicative key, must be coprime with 26
+- $b$ = additive key
 
-**Example**: AFFINE with K1=5, K2=8 → IHHWVC
+### Example
+Plaintext: AFFINE
+Key values: $a=5$, $b=8$
 
-**Security Level**: 🔴 Weak (312 keys, still vulnerable to frequency analysis)
+Ciphertext: IHHWVC
 
-**Difficulty**: 🟡 Medium (4/10)
+### Advantages
+- More flexible than Caesar or additive ciphers
+- Teaches modular inverses and combined operations
 
-**Key Concept**: Combining operations for increased complexity
+### Disadvantages
+- Still weak against frequency analysis
+- Key space is larger but still small by modern standards
+
+### Difficulty
+- Medium
 
 ---
 
@@ -120,51 +200,65 @@ Notice: Character positions stay the same; characters are replaced.
 
 ## Vigenère Cipher
 
-**Definition**: Uses a repeating keyword to generate multiple shift values.
+### Definition
+The Vigenère Cipher uses a repeating keyword so that each letter is shifted by a different amount.
 
-**Formula**: C = (P + K[i mod keylen]) mod 26
+### Formula
 
-**Key Advantage**: Defeats simple frequency analysis
+$$
+C_i = (P_i + K_{i \bmod n}) \bmod 26
+$$
 
-**Example**:
-```
+### How It Works
+1. Choose a keyword.
+2. Repeat the keyword to match the plaintext length.
+3. Shift each plaintext letter by the corresponding keyword letter.
+
+### Example
 Plaintext: VIGENERE
-Key:       CIPHER
+Keyword: CIPHER
+
 Ciphertext: XQVLRVTM
-```
 
-**Weakness**: Kasiski Examination reveals key length
+### Advantages
+- More resistant to simple frequency analysis than monoalphabetic ciphers
+- Introduces the idea of key repetition and polyalphabetic structure
 
-**Security Level**: 🟡 Weak-Medium (breakable once key length is found)
+### Disadvantages
+- Can be broken once the key length is discovered
+- Vulnerable to Kasiski analysis and frequency methods
 
-**Difficulty**: 🟡 Medium (5/10)
+### Difficulty
+- Medium
 
-**Cryptanalysis**: Kasiski Examination, Index of Coincidence
-
-**Historical Significance**: Considered unbreakable for 300 years until broken in 1863
+### Historical Note
+The Vigenère Cipher was considered very strong for centuries until methods for discovering the key length were developed.
 
 ---
 
 ## Homophonic Cipher
 
-**Definition**: Each plaintext letter maps to multiple possible ciphertext symbols.
+### Definition
+A homophonic cipher maps each plaintext letter to several possible ciphertext symbols so that frequency patterns become less obvious.
 
-**Method**: Frequency-based assignment
-- E (most frequent) → 6 representations
-- T (second) → 4 representations
-- Low-frequency letters → 1-2 representations
+### How It Works
+- Common letters such as E may have several possible substitutes.
+- Rare letters may have fewer options.
 
-**Example**:
-- E can be: 17, 42, 68, 91, 15, 73
-- T can be: 19, 54, 88, 32
+### Example
+- E may map to 17, 42, 68, 91, 15, or 73
+- T may map to 19, 54, 88, or 32
 
-**Advantage**: Defeats simple frequency analysis
+### Advantages
+- Makes simple frequency counts less useful
+- More complex than Caesar-like systems
 
-**Weakness**: Still vulnerable to digraph/trigraph analysis
+### Disadvantages
+- More difficult to implement manually
+- Still not secure by modern standards
 
-**Security Level**: 🟡 Weak (frequency patterns preserved in pairs)
-
-**Difficulty**: 🟡 Medium (6/10)
+### Difficulty
+- Medium
 
 ---
 
@@ -172,157 +266,161 @@ Ciphertext: XQVLRVTM
 
 ## Playfair Cipher
 
-**Definition**: Encrypts pairs of letters (digraphs) using a 5×5 matrix.
+### Definition
+The Playfair Cipher encrypts letters in pairs, called digraphs, using a 5x5 matrix.
 
-**Matrix Setup**: 
-- Fill with keyword letters
-- Add remaining alphabet (I/J combined)
+### How It Works
+1. Build a 5x5 matrix from a keyword.
+2. Split the plaintext into pairs.
+3. Apply one of three rules:
+   - Same row: shift right
+   - Same column: shift down
+   - Rectangle: swap corners
 
-**Encryption Rules**:
-- Same row: Shift right (wrap around)
-- Same column: Shift down (wrap around)
-- Rectangle: Swap corners
+### Example
+With keyword PLAYFAIR, the plaintext HELLO is prepared and encrypted in digraphs.
 
-**Example**: With keyword "PLAYFAIR", HELLO → (encrypted digraphs)
+### Advantages
+- Stronger than single-letter substitution
+- Uses pair-based structure
 
-**Security Level**: 🟡 Medium (breakable with digraph frequency analysis)
+### Disadvantages
+- Still vulnerable to digraph analysis
+- More complicated than earlier ciphers
 
-**Difficulty**: 🟡 Medium-Hard (7/10)
-
-**Historical Use**: WWI military communications
+### Difficulty
+- Medium-hard
 
 ---
 
 ## Autokey Cipher
 
-**Definition**: Plaintext itself becomes part of the key after initial keyword.
+### Definition
+The Autokey Cipher uses the plaintext itself to continue the key after the initial keyword.
 
-**Method**: Key = Keyword + Plaintext
+### How It Works
+The key is formed as:
 
-**Example**:
+```text
+Keyword + Plaintext
 ```
+
+### Example
 Plaintext: AUTOKEY
-Keyword:   SECRET
-Key:       SECRETAUTOKEY (keyword + plaintext)
-```
+Keyword: SECRET
 
-**Advantage**: No key repetition
+The key grows as the plaintext is used.
 
-**Weakness**: Vulnerable to known plaintext attack
+### Advantages
+- Avoids simple repetitive keyword patterns
+- More complex than a standard Vigenère-like system
 
-**Security Level**: 🟡 Medium (vulnerable to known plaintext)
+### Disadvantages
+- Can be attacked if some plaintext is known
+- Still not secure by modern standards
 
-**Difficulty**: 🟡 Medium (6/10)
+### Difficulty
+- Medium
 
 ---
 
 ## Nihilist Cipher
 
-**Definition**: Combines Polybius square substitution with transposition.
+### Definition
+The Nihilist Cipher combines a Polybius square with a transposition-style process.
 
-**Method**: 
-1. Convert letters to numbers (Polybius square)
-2. Apply transposition based on keyword
+### How It Works
+1. Convert letters to coordinates from a Polybius square.
+2. Combine those values to form a numeric representation.
+3. Use a keyword-based arrangement to create the ciphertext.
 
-**Polybius Square**: 5×5 grid where each letter = row digit + column digit
+### Example
+A letter such as A may be encoded as 11, while B becomes 12, and so on.
 
-**Example**: A=11, B=12, C=13, etc.
+### Advantages
+- More complex than simple substitution
+- Shows how classical systems can be combined
 
-**Security Level**: 🟡 Medium (vulnerable to cryptanalysis)
+### Disadvantages
+- Vulnerable to cryptanalysis
+- Historically not secure enough for modern needs
 
-**Difficulty**: 🟡 Medium-Hard (7/10)
-
-**Key Concept**: Hybrid cipher combining two techniques
+### Difficulty
+- Medium-hard
 
 ---
 
 ## One-Time Pad Cipher
 
-**Definition**: Theoretically perfect cipher using a random key as long as plaintext.
+### Definition
+The One-Time Pad uses a random key that is as long as the plaintext and is used only once.
 
-**Requirements**:
-- Key length = Plaintext length
-- Key is truly random
-- Key used only once (never reused)
-- Key securely distributed
+### Formula
 
-**Formula**: C = (P + K[i]) mod 26
+$$
+C = (P + K) \bmod 26
+$$
 
-**Security Level**: 🟢 Perfect (information-theoretically secure)
+### Requirements
+- The key must be random.
+- The key must be at least as long as the plaintext.
+- The key must never be reused.
 
-**Difficulty**: 🟡 Medium (5/10)
+### Advantages
+- Theoretically unbreakable if used correctly
+- Provides perfect secrecy in theory
 
-**Theoretical Strength**: Unbreakable (proven mathematically)
+### Disadvantages
+- Key distribution is difficult
+- Practical management of long random keys is hard
 
-**Practical Weakness**: Key distribution and management
+### Difficulty
+- Medium
 
-**Critical Rule**: If key is reused, security is completely lost
-
-**Real-World Use**: 
-- NSA communications
-- Moscow-Washington Hotline
-- Ultra-high-security scenarios
+### Important Note
+A one-time pad is secure only when the key is truly random, secret, and never reused.
 
 ---
 
-## Summary of Substitution Ciphers
+## Comparison and Learning Path
 
 ### Quick Comparison Table
 
 | Cipher | Type | Key Space | Security | Breakable |
 |--------|------|-----------|----------|-----------|
-| Caesar | Monoalpha | 26 | 🔴 Very Weak | Yes (Brute Force) |
-| Additive | Monoalpha | 26 | 🔴 Very Weak | Yes (Brute Force) |
-| Multiplicative | Monoalpha | 12 | 🔴 Very Weak | Yes (Frequency) |
-| Affine | Monoalpha | 312 | 🔴 Weak | Yes (Frequency) |
-| Vigenère | Polyalpha | 26^n | 🟡 Weak-Medium | Yes (Kasiski) |
-| Homophonic | Monoalpha | Variable | 🟡 Weak | Yes (Digraph) |
-| Playfair | Digraph | 26! | 🟡 Medium | Yes (Digraph) |
-| Autokey | Polyalpha | Unlimited | 🟡 Medium | Yes (Known Text) |
-| Nihilist | Hybrid | Variable | 🟡 Medium | Yes (Crypto) |
-| OTP | Polyalpha | ∞ | 🟢 Perfect | No (if key random) |
+| Caesar | Monoalphabetic | 26 | Very weak | Yes |
+| Additive | Monoalphabetic | 26 | Very weak | Yes |
+| Multiplicative | Monoalphabetic | 12 valid keys | Very weak | Yes |
+| Affine | Monoalphabetic | 312 | Weak | Yes |
+| Vigenère | Polyalphabetic | Large | Weak-medium | Yes |
+| Homophonic | Polyalphabetic-style | Variable | Weak | Yes |
+| Playfair | Digraph | Large | Medium | Yes |
+| Autokey | Polyalphabetic | Variable | Medium | Yes |
+| Nihilist | Hybrid | Variable | Medium | Yes |
+| One-Time Pad | Theoretical perfect | Infinite in principle | Perfect if used correctly | No, if correctly implemented |
 
-### Learning Path
-
-**Beginner**:
+### Suggested Learning Order
 1. Caesar Cipher
 2. Additive Cipher
 3. Multiplicative Cipher
-
-**Intermediate**:
 4. Affine Cipher
 5. Vigenère Cipher
 6. Homophonic Cipher
-
-**Advanced**:
 7. Playfair Cipher
 8. Autokey Cipher
 9. Nihilist Cipher
 10. One-Time Pad
 
 ### Key Insights
-
-✓ Simple substitution is broken by frequency analysis
-✓ Polyalphabetic ciphers need key length discovery to break
-✓ All classical ciphers are vulnerable to known plaintext attacks
-✓ OTP is perfect theory but impractical in practice
-✓ Multiple encryption layers provide better security
-✓ Modern cryptography uses mathematical complexity beyond classical methods
+- Simple substitution is easy to understand but weak.
+- Polyalphabetic methods are more complex and harder to break.
+- Classical ciphers are great for learning, but modern security requires modern cryptography.
 
 ---
 
-## Detailed Examples Available
+## Summary
 
-For comprehensive worked examples, formulas, and step-by-step encryption/decryption:
-- See individual cipher documentation files
-- Review Python implementations in `/examples/` directories
-- Check `/resources/` for practice problems
+Substitution ciphers introduce the core ideas of cryptography: changing symbols, using keys, and protecting meaning. They are excellent for learning the foundations of encryption, but they are not suitable for protecting real data in modern systems. Modern solutions such as AES, RSA, and secure protocols build on these ideas with far stronger mathematics and key management.
 
----
+Next, continue with the transposition lesson to see how rearranging letters can also create encryption.
 
-*Next: Read 03_Transposition_Ciphers.md to learn rearrangement-based encryption*
-
----
-
-*Document Status: Complete*  
-*Last Updated: July 2026*
