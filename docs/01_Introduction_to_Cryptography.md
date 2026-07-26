@@ -246,68 +246,6 @@ Cryptography aims to achieve the following four fundamental objectives:
 
 ---
 
-## Key Concepts Visual
-
-### The Encryption Process
-
-```
-┌─────────────┐
-│  Plaintext  │
-│ "HELLO"     │
-└──────┬──────┘
-       │
-       │ Encryption Algorithm + Key
-       │ (e.g., Caesar, shift 3)
-       ▼
-┌─────────────┐
-│ Ciphertext  │
-│ "KHOOR"     │
-└──────┬──────┘
-       │
-       │ Decryption Algorithm + Key
-       │ (Same key, reverse operation)
-       ▼
-┌─────────────┐
-│  Plaintext  │
-│ "HELLO"     │
-└─────────────┘
-```
-
-### The Cryptanalyst's Challenge
-
-```
-┌──────────────┐
-│ INTERCEPTED  │
-│ "KHOOR ZRUOG"│ ← Only has ciphertext and algorithm
-│ Caesar Cipher│ ← Knows cipher type (maybe)
-└──────────────┘
-       │
-       │ Cryptanalysis
-       │ (Try all 26 shifts, analyze frequency, etc.)
-       ▼
-┌──────────────┐
-│ ATTACK FAILS │ ← Without key, decryption is hard
-│ (If strong   │
-│  cipher used)│
-└──────────────┘
-```
-
----
-
-## Why Study Classical Cryptography?
-
-Although classical ciphers are no longer secure for real-world use, studying them is valuable because:
-
-1. **Educational Foundation**: Understand core cryptographic concepts
-2. **Historical Context**: Learn how cryptography evolved
-3. **Cryptanalysis Skills**: Practice breaking codes teaches problem-solving
-4. **Algorithm Design**: Classical ciphers demonstrate basic encryption principles
-5. **Modern Crypto Understanding**: Modern algorithms build on classical concepts
-6. **Security Awareness**: Understand why weak ciphers fail
-7. **Puzzle Solving**: Engaging and intellectually rewarding
-
----
-
 ## Summary
 
 **Cryptography** is the science of securing information by converting it into unreadable form. It has evolved from simple substitution ciphers used by Julius Caesar to modern mathematical algorithms securing billions of transactions daily.
@@ -329,8 +267,6 @@ Although classical ciphers are no longer secure for real-world use, studying the
 ### Next Steps
 
 You now understand the fundamentals of cryptography. In the next document, we'll explore **substitution ciphers** in detail, starting with the Caesar Cipher and progressing to more complex polyalphabetic ciphers.
-
-Ready to begin? Let's move to **02_Substitution_Ciphers.md**! 🔐
 
 ---
 
