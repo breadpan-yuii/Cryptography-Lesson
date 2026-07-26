@@ -1,6 +1,10 @@
 # Cryptography-Lesson: A Comprehensive Learning Resource
 
 Welcome to **Cryptography-Lesson**, a professional educational repository designed to teach the fundamentals of cryptography with a focus on classical encryption techniques. This repository is ideal for students, beginners, and anyone interested in understanding how data security works.
+ 
+## Changelog
+
+- 2026-07-26: Merged extended substitution material into `docs/02_Substitution_Ciphers.md` and removed the superseded `docs/SUBSTITUTION_CIPHERS_EXTENDED.md` (see commit history).
 
 ## 📚 Repository Overview
 
@@ -102,7 +106,7 @@ Cryptography-Lesson/
 
 ## 🚀 Recommended Learning Order
 
-1. **Start Here**: Read `docs/01_Introduction_to_Cryptography.md`
+1. **Start Here**: Read the introduction — [01_Introduction_to_Cryptography.md](docs/01_Introduction_to_Cryptography.md)
    - Understand basic concepts and terminology
 
 2. **Learn Substitution Ciphers**: Read `docs/02_Substitution_Ciphers.md`
