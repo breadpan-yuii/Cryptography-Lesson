@@ -1,0 +1,12 @@
+Caesar Wheel Illustration
+========================
+
+Plain alphabet:  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Shifted alphabet (key = 3):  DEFGHIJKLMNOPQRSTUVWXYZABC
+
+    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+    | | | | | | | | | | | | | | | | | | | | | | | | | |
+    v v v v v v v v v v v v v v v v v v v v v v v v v
+    D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+
+Example: HELLO -> KHOOR

@@ -1,0 +1,27 @@
+Encryption Flowchart
+====================
+
+Plaintext
+   |
+   v
+Choose Cipher + Key
+   |
+   v
+Apply Encryption Rules
+   |
+   v
+Ciphertext
+   |
+   v
+Transmission / Storage
+
+Decryption Flowchart
+====================
+
+Ciphertext
+   |
+   v
+Use Key + Cipher Rules
+   |
+   v
+Recover Plaintext

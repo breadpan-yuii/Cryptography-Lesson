@@ -1,0 +1,15 @@
+Playfair Matrix Example
+=======================
+
+Keyword: PLAYFAIR
+
+P L A Y F
+I R B C D
+E G H K M
+N O Q S T
+U V W X Z
+
+Rules:
+- Same row -> shift right
+- Same column -> shift down
+- Rectangle -> swap corners

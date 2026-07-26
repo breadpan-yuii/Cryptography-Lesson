@@ -1,0 +1,13 @@
+Rail Fence Visualization
+=======================
+
+Plaintext: HELLO WORLD
+Rails: 3
+
+H       O       L
+ E   L   W   R   D
+  L       O
+
+Reading order: Rail 1 -> Rail 2 -> Rail 3
+
+Ciphertext: HOLELWRDLO
